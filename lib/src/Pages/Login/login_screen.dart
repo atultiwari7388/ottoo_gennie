@@ -1,151 +1,148 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ottoo_gennie/src/Pages/Home/home_screen.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  var _formKey = GlobalKey<FormState>();
 
-  late String email;
-
-  late String password;
-
-  final _formKey = GlobalKey<FormState>();
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.orange,
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            Container(
-              decoration: new BoxDecoration(color: Colors.orange),
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(10),
-              child: Image.asset('assets/Logo.png'),
-            ),
-            Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(10),
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20),
-                )),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Form(
-                key: _formKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please Enter Youur Email';
-                    }
-                    return null;
-                  },
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.mail_outline),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                    ),
-                    fillColor: Colors.orange,
-                    labelText: 'Email Address',
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextFormField(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Your Password';
-                  }
-                  return null;
-                },
-                obscureText: true,
-                controller: passwordController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  fillColor: Colors.orange,
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            FlatButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              textColor: Colors.blue,
-              child: Text('Forgot Password'),
-            ),
-
-            Container(
-              decoration: BoxDecoration(
-                
-              ),
-              width: 150,
-              height: 50,
-              color: Colors.orange,
-              alignment: Alignment.center,
-              child: Text(
-                'Login',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
-            // Container(
-            //   height: 50,
-            //   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-            //   child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //       primary: Colors.orange,
-            //       shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(18.0)),
-            //     ),
-            //     child: Text('Login'),
-            //     onPressed: () {
-            //       Navigator.of(context).push(
-            //         MaterialPageRoute(
-            //           builder: (context) => HomeScreen(),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
-            Container(
-              child: Row(
+      body: Card(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
                 children: <Widget>[
-                  Text('Does not have account?'),
-                  FlatButton(
-                    textColor: Colors.blue,
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(fontSize: 20),
+                  Container(
+                    decoration: BoxDecoration(color: Colors.orange),
+                    child: Image.asset('assets/Logo.png'),
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10.0),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  Text(
+                    'Sign Up Here',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
+
+                  SizedBox(
+                    height: 40,
+                  ),
+
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value)) {
+                        return 'Enter a valid email!';
+                      }
+                      return null;
+                    },
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      fillColor: Colors.orange,
+                      prefixIcon: Icon(Icons.mail_outline),
+                      border: OutlineInputBorder(
+                        // borderSide: BorderSide(color: Colors.orange),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      labelText: 'Email Address',
                     ),
-                    onPressed: () {},
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter a valid password!';
+                      }
+                      return null;
+                    },
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      fillColor: Colors.orange,
+                      prefixIcon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.orange),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      labelText: 'Enter your Password',
+                    ),
+                    obscureText: true,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  // login button
+
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.orange)),
+                    onPressed: () {
+                      setState(() {
+                        _submit();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      });
+                    },
+                    child: Text(
+                      'Login',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  Text('-- OR --'),
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.googlePlusSquare,
+                      color: Colors.orange,
+                      size: 50,
+                    ),
                   ),
                 ],
-                mainAxisAlignment: MainAxisAlignment.center,
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
