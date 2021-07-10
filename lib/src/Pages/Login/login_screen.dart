@@ -113,9 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       setState(() {
                         _submit();
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                        );
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                        // );
                       });
                     },
                     child: Text(
@@ -140,11 +140,18 @@ class _LoginPageState extends State<LoginPage> {
                         minimumSize: Size(double.infinity, 50)),
                     onPressed: () {
                       // call googleLogin in authentication
-                      final provider = Provider.of<GoogleSignInProvider>(
-                          context,
-                          listen: false);
 
-                      provider.googleLogin();
+                      setState(() {
+                        final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false);
+
+                        provider.googleLogin();
+
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      });
                     },
                     icon: FaIcon(
                       FontAwesomeIcons.google,

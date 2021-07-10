@@ -22,7 +22,10 @@ class LoggedIn extends StatelessWidget {
                   Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.logout();
             },
-            child: Icon(FontAwesomeIcons.signOutAlt),
+            child: Icon(
+              FontAwesomeIcons.signOutAlt,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

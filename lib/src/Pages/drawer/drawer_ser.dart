@@ -1,13 +1,17 @@
 import 'dart:core';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ottoo_gennie/src/Pages/Home/home_screen.dart';
+import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 import 'package:ottoo_gennie/src/Services/store_location.dart';
 import 'package:ottoo_gennie/src/webView/Example4.dart';
 
 class DrawerSide extends StatelessWidget {
-  const DrawerSide({Key? key}) : super(key: key);
+  // const DrawerSide({Key? key}) : super(key: key);
 
   // void Function()?;
+
+  final user = FirebaseAuth.instance.currentUser!;
 
   Widget listTile(
       {required IconData icon, required String title, Null Function()? onTap}) {
@@ -35,11 +39,10 @@ class DrawerSide extends StatelessWidget {
               child: Row(
                 children: [
                   CircleAvatar(
-                    backgroundColor: Colors.red,
+                    // backgroundColor: Colors.red,
                     radius: 40,
                     child: CircleAvatar(
-                      radius: 35,
-                      backgroundColor: Colors.white,
+                      backgroundImage: NetworkImage(user.photoURL!),
                     ),
                   ),
                   SizedBox(
@@ -48,24 +51,24 @@ class DrawerSide extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Welcome Guest'),
+                      Text('Welcome : ' + user.displayName!),
                       SizedBox(
                         height: 7,
                       ),
 
                       // Create Login Button in Drawer Header
 
-                      Container(
-                        height: 30,
-                        child: OutlineButton(
-                          onPressed: () {},
-                          child: Text('Login'),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(width: 2),
-                          ),
-                        ),
-                      )
+                      // Container(
+                      //   height: 30,
+                      //   child: OutlineButton(
+                      //     onPressed: () {},
+                      //     child: Text('Login'),
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(15),
+                      //       side: BorderSide(width: 2),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],
@@ -83,7 +86,7 @@ class DrawerSide extends StatelessWidget {
                 title: "My Account",
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => LoggedIn()));
                 }),
             listTile(
                 icon: Icons.hail_rounded,

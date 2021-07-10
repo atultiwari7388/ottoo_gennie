@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ottoo_gennie/src/Pages/drawer/drawer_ser.dart';
+import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 import 'package:ottoo_gennie/src/Services/store_location.dart';
 import 'package:ottoo_gennie/src/widgets/image_slider.dart';
 
@@ -10,6 +12,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
+
+    final user = FirebaseAuth.instance.currentUser!;
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -22,6 +26,21 @@ class HomeScreen extends StatelessWidget {
               'OTTOO GENNIE',
               style: TextStyle(color: Colors.red),
             ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoggedIn(),
+                    ),
+                  );
+                },
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundImage: NetworkImage(user.photoURL!),
+                ),
+              ),
+            ],
             iconTheme: IconThemeData(color: Colors.red)),
         drawer: DrawerSide(),
         floatingActionButton: FloatingActionButton(
