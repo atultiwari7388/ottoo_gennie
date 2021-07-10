@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ottoo_gennie/src/Auth/authentication.dart';
 import 'package:ottoo_gennie/src/Pages/Home/home_screen.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -117,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     },
                     child: Text(
-                      'Login',
+                      'SignUp',
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -131,13 +133,24 @@ class _LoginPageState extends State<LoginPage> {
                     height: 10,
                   ),
 
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.googlePlusSquare,
-                      color: Colors.orange,
-                      size: 50,
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        minimumSize: Size(double.infinity, 50)),
+                    onPressed: () {
+                      // call googleLogin in authentication
+                      final provider = Provider.of<GoogleSignInProvider>(
+                          context,
+                          listen: false);
+
+                      provider.googleLogin();
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.google,
+                      color: Colors.red,
                     ),
+                    label: Text('Sign Up with Google'),
                   ),
                 ],
               ),
