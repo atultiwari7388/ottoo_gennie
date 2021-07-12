@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ottoo_gennie/src/Pages/Home/home_screen.dart';
 import 'package:ottoo_gennie/src/Pages/Login/login_screen.dart';
-import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class ProfilePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              return LoggedIn();
+              return HomeScreen();
             } else if (snapshot.hasError) {
               return Center(
                 child: Text('Something Went Wrong'),

@@ -46,61 +46,62 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
 
-                  Text(
-                    'Sign Up Here',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
-                  ),
+                  // Text(
+                  //   'Sign Up Here',
+                  //   style: TextStyle(color: Colors.black, fontSize: 20),
+                  // ),
 
-                  SizedBox(
-                    height: 40,
-                  ),
+                  // SizedBox(
+                  //   height: 40,
+                  // ),
 
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty ||
-                          !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(value)) {
-                        return 'Enter a valid email!';
-                      }
-                      return null;
-                    },
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      fillColor: Colors.orange,
-                      prefixIcon: Icon(Icons.mail_outline),
-                      border: OutlineInputBorder(
-                        // borderSide: BorderSide(color: Colors.orange),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                      labelText: 'Email Address',
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Enter a valid password!';
-                      }
-                      return null;
-                    },
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                      fillColor: Colors.orange,
-                      prefixIcon: Icon(Icons.lock),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.orange),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                      labelText: 'Enter your Password',
-                    ),
-                    obscureText: true,
-                  ),
+                  // TextFormField(
+                  //   validator: (value) {
+                  //     if (value!.isEmpty ||
+                  //         !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                  //             .hasMatch(value)) {
+                  //       return 'Enter a valid email!';
+                  //     }
+                  //     return null;
+                  //   },
+                  //   controller: _emailController,
+                  //   decoration: InputDecoration(
+                  //     fillColor: Colors.orange,
+                  //     prefixIcon: Icon(Icons.mail_outline),
+                  //     border: OutlineInputBorder(
+                  //       // borderSide: BorderSide(color: Colors.orange),
+                  //       borderRadius: BorderRadius.all(
+                  //         Radius.circular(20),
+                  //       ),
+                  //     ),
+                  //     labelText: 'Email Address',
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
+                  // TextFormField(
+                  //   validator: (value) {
+                  //     if (value!.isEmpty) {
+                  //       return 'Enter a valid password!';
+                  //     }
+                  //     return null;
+                  //   },
+                  //   controller: _passwordController,
+                  //   decoration: InputDecoration(
+                  //     fillColor: Colors.orange,
+                  //     prefixIcon: Icon(Icons.lock),
+                  //     border: OutlineInputBorder(
+                  //       borderSide: BorderSide(color: Colors.orange),
+                  //       borderRadius: BorderRadius.all(
+                  //         Radius.circular(20),
+                  //       ),
+                  //     ),
+                  //     labelText: 'Enter your Password',
+                  //   ),
+                  //   obscureText: true,
+                  // ),
+
                   SizedBox(
                     height: 20,
                   ),
@@ -135,9 +136,10 @@ class _LoginPageState extends State<LoginPage> {
 
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Colors.black,
-                        minimumSize: Size(double.infinity, 50)),
+                      primary: Colors.white,
+                      onPrimary: Colors.black,
+                      minimumSize: Size(double.infinity, 50),
+                    ),
                     onPressed: () {
                       // call googleLogin in authentication
 
@@ -148,9 +150,9 @@ class _LoginPageState extends State<LoginPage> {
 
                         provider.googleLogin();
 
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
-                        );
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                        // );
                       });
                     },
                     icon: FaIcon(

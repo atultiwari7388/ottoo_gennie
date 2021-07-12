@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ottoo_gennie/src/Pages/drawer/drawer_ser.dart';
 import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 import 'package:ottoo_gennie/src/Services/store_location.dart';
+import 'package:ottoo_gennie/src/webView/Example4.dart';
 import 'package:ottoo_gennie/src/widgets/image_slider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,8 +11,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
-    var h = MediaQuery.of(context).size.height;
+    // var w = MediaQuery.of(context).size.width;
+    // var h = MediaQuery.of(context).size.height;
 
     final user = FirebaseAuth.instance.currentUser!;
 
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 child: CircleAvatar(
-                  radius: 40,
+                  radius: 30,
                   backgroundImage: NetworkImage(user.photoURL!),
                 ),
               ),
@@ -78,7 +79,10 @@ class HomeScreen extends StatelessWidget {
                   title: Text('General Auto Repair & Maintenance'),
                   leading: Image.asset('assets/Auto_repair.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WebExampleFour()));
+                  },
                 ),
               ),
               Card(
@@ -87,7 +91,10 @@ class HomeScreen extends StatelessWidget {
                   title: Text('Brake Repair and Replacement'),
                   leading: Image.asset('assets/Brake_repair.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WebExampleFour()));
+                  },
                 ),
               ),
               Card(
@@ -96,7 +103,10 @@ class HomeScreen extends StatelessWidget {
                   title: Text('AC Repair'),
                   leading: Image.asset('assets/air_condition.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WebExampleFour()));
+                  },
                 ),
               ),
               Card(
@@ -105,7 +115,10 @@ class HomeScreen extends StatelessWidget {
                   title: Text('Tire Repair'),
                   leading: Image.asset('assets/Tire_repair.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WebExampleFour()));
+                  },
                 ),
               ),
               Card(
@@ -114,7 +127,10 @@ class HomeScreen extends StatelessWidget {
                   title: Text('Fuel System Repair'),
                   leading: Image.asset('assets/Fuel_repair.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => WebExampleFour()));
+                  },
                 ),
               ),
               Card(
@@ -126,7 +142,14 @@ class HomeScreen extends StatelessWidget {
                   title: Text('Engine Cooling System Maintenance'),
                   leading: Image.asset('assets/Engine_cooling.png'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => WebExampleFour(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

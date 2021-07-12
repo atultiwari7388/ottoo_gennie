@@ -40,7 +40,7 @@ class DrawerSide extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     // backgroundColor: Colors.red,
-                    radius: 40,
+                    radius: 20,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(user.photoURL!),
                     ),
@@ -51,12 +51,17 @@ class DrawerSide extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Welcome : ' + user.displayName!),
+                      Text('Welcome\n' + user.displayName!),
+                      SizedBox(
+                        height: 5,
+                      ),
+
                       SizedBox(
                         height: 7,
                       ),
+                      Text(user.email!),
 
-                      // Create Login Button in Drawer Header
+                      //! Create Login Button in Drawer Header
 
                       // Container(
                       //   height: 30,

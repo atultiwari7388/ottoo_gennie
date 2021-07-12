@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ottoo_gennie/src/Auth/authentication.dart';
+import 'package:ottoo_gennie/src/Pages/Login/login_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoggedIn extends StatelessWidget {
@@ -15,17 +16,21 @@ class LoggedIn extends StatelessWidget {
         centerTitle: true,
         actions: <Widget>[
           TextButton(
+            child: Text(
+              'Logout',
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () {
               // call logout button here
 
-              final provider =
-                  Provider.of<GoogleSignInProvider>(context, listen: false);
-              provider.logout();
+              // final provider =
+              //     Provider.of<GoogleSignInProvider>(context, listen: false);
+              // provider.logout();
+              FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  (route) => false);
             },
-            child: Icon(
-              FontAwesomeIcons.signOutAlt,
-              color: Colors.white,
-            ),
           ),
         ],
       ),
