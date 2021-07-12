@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ottoo_gennie/src/Pages/drawer/drawer_ser.dart';
 import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 import 'package:ottoo_gennie/src/Services/store_location.dart';
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        // backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         appBar: AppBar(
             elevation: 1,
             centerTitle: true,
@@ -37,8 +38,12 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 child: CircleAvatar(
-                  radius: 30,
+                  radius: 20,
                   backgroundImage: NetworkImage(user.photoURL!),
+                  // // child: Icon(
+                  // //   Icons.person_outline,
+                  // //   size: 30,
+                  // ),
                 ),
               ),
             ],
@@ -46,12 +51,16 @@ class HomeScreen extends StatelessWidget {
         drawer: DrawerSide(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => StoreLocation()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => StoreLocation(),
+              ),
+            );
           },
           tooltip: 'Store Location',
           child: Icon(Icons.pin_drop_outlined),
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Colors.white,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         body: Container(
@@ -74,6 +83,7 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Card(
+                clipBehavior: Clip.antiAlias,
                 // color: Colors.yellow,
                 child: ListTile(
                   title: Text('General Auto Repair & Maintenance'),

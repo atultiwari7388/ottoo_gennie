@@ -12,49 +12,79 @@ class LoggedIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Account'),
-        centerTitle: true,
-        actions: <Widget>[
-          TextButton(
-            child: Text(
-              'Logout',
-              style: TextStyle(color: Colors.white),
-            ),
-            onPressed: () {
-              // call logout button here
-
-              // final provider =
-              //     Provider.of<GoogleSignInProvider>(context, listen: false);
-              // provider.logout();
-              FirebaseAuth.instance.signOut();
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                  (route) => false);
-            },
-          ),
-        ],
+        title: Text(
+          'My Account',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            Text('Profile'),
-            SizedBox(
-              height: 32,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 28.0),
+            child: Card(
+              child: Container(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30.0),
+                      child: Text(
+                        'My Profile',
+                        style: TextStyle(color: Colors.black, fontSize: 30),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    CircleAvatar(
+                      radius: 70,
+                      backgroundImage: NetworkImage(user.photoURL!),
+                    ),
+                    SizedBox(
+                      height: 35,
+                    ),
+                    Text(
+                      'Name : ' + user.displayName!,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Email : ' + user.email!,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    IconButton(
+                      icon: FaIcon(
+                        FontAwesomeIcons.signOutAlt,
+                        color: Colors.orange,
+                      ),
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                        // Navigator.of(context).pushAndRemoveUntil(
+                        //     MaterialPageRoute(
+                        //         builder: (context) => LoginPage()),
+                        //     (route) => false);
+                      },
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            CircleAvatar(
-              radius: 40,
-              backgroundImage: NetworkImage(user.photoURL!),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text('Name: ' + user.displayName!),
-            SizedBox(
-              height: 10,
-            ),
-            Text('Email:' + user.email!),
-          ],
+          ),
         ),
       ),
     );

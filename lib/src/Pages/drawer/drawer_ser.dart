@@ -51,7 +51,7 @@ class DrawerSide extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Welcome\n' + user.displayName!),
+                      Text('' + user.displayName!),
                       SizedBox(
                         height: 5,
                       ),
@@ -83,9 +83,15 @@ class DrawerSide extends StatelessWidget {
 // Call HeaderList tile function
 
             listTile(
-              icon: Icons.home_filled,
-              title: "Home",
-            ),
+                icon: Icons.home_filled,
+                title: "Home",
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                }),
             listTile(
                 icon: Icons.person_outline,
                 title: "My Account",

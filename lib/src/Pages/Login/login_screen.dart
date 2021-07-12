@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ottoo_gennie/src/Auth/authentication.dart';
-import 'package:ottoo_gennie/src/Pages/Home/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,7 +27,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Card(
+      backgroundColor: Colors.orange,
+      body: Center(
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    decoration: BoxDecoration(color: Colors.orange),
+                    // decoration: BoxDecoration(color: Colors.orange),
                     child: Image.asset('assets/Logo.png'),
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10.0),
@@ -107,29 +107,29 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   // login button
 
-                  ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.orange)),
-                    onPressed: () {
-                      setState(() {
-                        _submit();
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(builder: (context) => HomeScreen()),
-                        // );
-                      });
-                    },
-                    child: Text(
-                      'SignUp',
-                      style: TextStyle(fontSize: 25),
-                    ),
-                  ),
+                  // ElevatedButton(
+                  //   style: ButtonStyle(
+                  //       backgroundColor:
+                  //           MaterialStateProperty.all(Colors.orange)),
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       _submit();
+                  //       // Navigator.of(context).push(
+                  //       //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                  //       // );
+                  //     });
+                  //   },
+                  //   child: Text(
+                  //     'SignUp',
+                  //     style: TextStyle(fontSize: 25),
+                  //   ),
+                  // ),
 
                   SizedBox(
                     height: 10,
                   ),
 
-                  Text('-- OR --'),
+                  // Text('-- OR --'),
                   SizedBox(
                     height: 10,
                   ),
@@ -158,8 +158,9 @@ class _LoginPageState extends State<LoginPage> {
                     icon: FaIcon(
                       FontAwesomeIcons.google,
                       color: Colors.red,
+                      size: 30,
                     ),
-                    label: Text('Sign Up with Google'),
+                    label: Text('Continue with Google'),
                   ),
                 ],
               ),
