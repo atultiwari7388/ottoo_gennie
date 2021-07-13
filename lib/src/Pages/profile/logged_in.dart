@@ -71,10 +71,10 @@ class LoggedIn extends StatelessWidget {
                       ),
                       onPressed: () {
                         FirebaseAuth.instance.signOut();
-                        // Navigator.of(context).pushAndRemoveUntil(
-                        //     MaterialPageRoute(
-                        //         builder: (context) => LoginPage()),
-                        //     (route) => false);
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()),
+                            (route) => false);
                       },
                     ),
                     SizedBox(
