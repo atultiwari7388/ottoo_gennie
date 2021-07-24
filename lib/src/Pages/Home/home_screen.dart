@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ottoo_gennie/src/Pages/drawer/drawer_ser.dart';
 import 'package:ottoo_gennie/src/Pages/profile/logged_in.dart';
 import 'package:ottoo_gennie/src/Services/store_location.dart';

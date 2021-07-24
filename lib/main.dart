@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.orange,
           ),
+          themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
           home: ProfilePage(),
         ),
