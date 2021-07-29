@@ -82,7 +82,7 @@ class SplashScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation(Colors.orange),
+                      valueColor: AlwaysStoppedAnimation(Colors.white),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
