@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "312733672673",
-    "project_id": "ottoo-gennie",
-    "storage_bucket": "ottoo-gennie.appspot.com"
+    "project_number": "598865050774",
+    "project_id": "ottoogennie",
+    "storage_bucket": "ottoogennie.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:312733672673:android:234269ce181c3d0bcd03a0",
+        "mobilesdk_app_id": "1:598865050774:android:413c147a18a2e7598f56b7",
         "android_client_info": {
-          "package_name": "com.ottoogennie.ottoogennie"
+          "package_name": "com.ottoogennie"
         }
       },
       "oauth_client": [
         {
-          "client_id": "312733672673-d9a83d4k7jtosurih84k5mbu9ubeas6h.apps.googleusercontent.com",
+          "client_id": "598865050774-kdj8h3a8efs3cetcj1ei3u3np15lsg2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ottoogennie",
+            "certificate_hash": "d2bc11af16c2ef48c854feacdf68b032067b1155"
+          }
+        },
+        {
+          "client_id": "598865050774-4gd1t6kr5kg60hnethhru9kdcnedkn1o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7FrK86xI5-uqsctrE45ILxzNJTI5hdCg"
+          "current_key": "AIzaSyCLFKbhK4EQd61dn0jCTjbra4s9u-YqZ7k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "312733672673-d9a83d4k7jtosurih84k5mbu9ubeas6h.apps.googleusercontent.com",
+              "client_id": "598865050774-4gd1t6kr5kg60hnethhru9kdcnedkn1o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

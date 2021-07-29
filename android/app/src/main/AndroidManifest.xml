@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ottoo_gennie">
+    package="com.ottoo_gennie">
 
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="ottoo gennie"
+        android:label="ottoogennie"
         android:icon="@mipmap/ic_launcher">
          <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyDU_ALpihnNrbrm7iNq31DEuQu0cBhddZw"/>
